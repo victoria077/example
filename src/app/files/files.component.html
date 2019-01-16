@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <mat-card color="primary" class="back">
+    <mat-form-field class="example-full-width" color="primary">
+      <input type="file" id="file" [(ngModel)]="fileId" (change)="handleFileInput($event.target.files)" color="primary">
+    </mat-form-field>
+    <button color="primary" mat-raised-button (click)="uploadFileToActivity()" class="button"> Upload</button>
+  </mat-card>
+
+
+
+  <div *ngFor="let file of files; let i = index" class="list">
+    <mat-card>
+      <img mat-card-md-image src="http://localhost:5000/api/Files/{{file}}" />
+      <button mat-icon-button color="warn" (dblclick)="deleteFile(i)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-card>
+  </div>
+</div>
